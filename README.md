@@ -20,10 +20,7 @@ PALA is a hackathon project developed for a university setting. It aims to autom
 
 2. Install Dependencies: Install the required Python libraries using pip:
 
-Bash
 ` pip install python-dotenv google-generativeai`
-
-Use code with caution.
 
 3. Obtain API Key: Create a project in Google AI Platform Studio and enable the Google Generative AI API. Generate an API key for your project.
 
@@ -35,10 +32,7 @@ Use code with caution.
 
 6. Run the Prototype: Execute the main script using the following command:
 
-Bash
 `python pala.py`
-
-Use code with caution.
 
 ## Disclaimer
 
