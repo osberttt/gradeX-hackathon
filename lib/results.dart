@@ -13,6 +13,8 @@ Future<http.Response> getResults() async {
 }
 
 class ResultsPage extends StatelessWidget {
+  const ResultsPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,10 +39,6 @@ class ResultsPage extends StatelessWidget {
                     });
                   }
 
-                  // return Text(
-                  //     "${data.toString()} |||| ${sanitizedData.toString()}");
-
-                  // Display data using ListView or other widgets
                   return Column(children: [
                     DataTable(
                       columns: const [
@@ -61,13 +59,23 @@ class ResultsPage extends StatelessWidget {
                           .map((item) => _buildDataRow(item))
                           .toList(),
                     ),
-                    Text(data['feedbacks'])
+                    const SizedBox(
+                      height: 50.0,
+                    ),
+                    SingleChildScrollView(child: Text(data['feedbacks']))
                   ]);
                 } else if (snapshot.hasError) {
                   return Text('Error: ${snapshot.error}');
                 }
                 // Display a loading indicator while waiting for data
-                return const CircularProgressIndicator();
+                return const Column(
+                  children: [
+                    SizedBox(
+                      height: 100.0,
+                    ),
+                    CircularProgressIndicator(),
+                  ],
+                );
               }),
         ])));
   }

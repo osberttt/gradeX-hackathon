@@ -42,8 +42,3 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
-# API Key
-.env
-
-# Backend related
-__pycache__

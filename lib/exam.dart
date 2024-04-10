@@ -5,6 +5,7 @@ import 'package:pala_hackathon/results.dart';
 
 const String url = 'http://127.0.0.1:5000/api/exam';
 
+const int numberOfQuestions = 3;
 Future<http.Response> postData(Map<String, dynamic> data) async {
   final response = await http.post(
     Uri.parse(url),
@@ -24,21 +25,21 @@ Future<http.Response> getData(int number) async {
 
 class ExamPage extends StatefulWidget {
   final int questionNumber;
-  ExamPage({super.key, required this.questionNumber});
+  const ExamPage({super.key, required this.questionNumber});
   @override
-  _ExamPageState createState() => _ExamPageState(questionNumber);
+  ExamPageState createState() => ExamPageState(questionNumber);
 }
 
-class _ExamPageState extends State<ExamPage> {
+class ExamPageState extends State<ExamPage> {
   String answer = "";
 
-  final int question_number;
-  _ExamPageState(this.question_number);
+  final int questionNumber;
+  ExamPageState(this.questionNumber);
 
   Future<http.Response>? _dataFuture;
   void _fetchData() {
     setState(() {
-      _dataFuture = getData(question_number);
+      _dataFuture = getData(questionNumber);
     });
   }
 
@@ -55,61 +56,80 @@ class _ExamPageState extends State<ExamPage> {
         title: const Text('ICT 102 Computer Programming I'),
         centerTitle: true,
       ),
-      body: Column(
-        children: [
-          FutureBuilder<http.Response>(
-            future: _dataFuture,
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                final response = snapshot.data!;
-                var data = json.decode(response.body);
-                // Display data using ListView or other widgets
-                return Text(
-                  "${question_number + 1}  ${data['question']}",
-                  style: const TextStyle(fontSize: 18.0),
-                );
-              } else if (snapshot.hasError) {
-                return Text('Error: ${snapshot.error}');
-              }
-              //Display a loading indicator while waiting for data
-              return const CircularProgressIndicator();
-            },
-          ),
-          const SizedBox(height: 10.0),
-          TextField(
-            decoration: const InputDecoration(
-              border: OutlineInputBorder(),
-              labelText: 'Answer',
-            ),
-            onChanged: (value) => setState(() => answer = value),
-          ),
-          const SizedBox(height: 20.0),
-          ElevatedButton(
-            onPressed: question_number == 2
-                ? () {
-                    final data = {"answer": answer};
-                    postData(data);
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => ResultsPage()));
-                  }
-                : () {
-                    final data = {"answer": answer};
-                    postData(data);
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => ExamPage(
-                                  questionNumber: question_number + 1,
-                                )));
-                  },
-            style: ElevatedButton.styleFrom(
-              backgroundColor:
-                  Colors.blue.withOpacity(0.5), // Grayed out button
-            ),
-            child: Text(question_number == 2 ? 'See Results' : 'Next Question'),
-          ),
-        ],
+      body: Center(
+        child: Column(
+          children: [
+            const SizedBox(height: 50.0),
+            questionFuture(),
+            const SizedBox(height: 10.0),
+            answerField(),
+            const SizedBox(height: 20.0),
+            submitButton(context),
+          ],
+        ),
       ),
+    );
+  }
+
+  ElevatedButton submitButton(BuildContext context) {
+    return ElevatedButton(
+      onPressed: questionNumber == numberOfQuestions - 1
+          ? () {
+              final data = {"answer": answer};
+              postData(data);
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const ResultsPage()));
+            }
+          : () {
+              final data = {"answer": answer};
+              postData(data);
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => ExamPage(
+                            questionNumber: questionNumber + 1,
+                          )));
+            },
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.blue.withOpacity(0.5), // Grayed out button
+      ),
+      child: Text(questionNumber == 2 ? 'See Results' : 'Next Question'),
+    );
+  }
+
+  Container answerField() {
+    return Container(
+      width: 400.0,
+      padding: const EdgeInsets.all(10.0),
+      child: TextField(
+        maxLines: 5,
+        decoration: const InputDecoration(
+          border: OutlineInputBorder(),
+          labelText: '',
+        ),
+        onChanged: (value) => setState(() => answer = value),
+      ),
+    );
+  }
+
+  FutureBuilder<http.Response> questionFuture() {
+    return FutureBuilder<http.Response>(
+      future: _dataFuture,
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          final response = snapshot.data!;
+          var data = json.decode(response.body);
+          // Display data using ListView or other widgets
+          return Text(
+            "${questionNumber + 1}  ${data['question']}",
+            style: const TextStyle(fontSize: 18.0),
+          );
+        } else if (snapshot.hasError) {
+          return Text('Error: ${snapshot.error}');
+        }
+        //Display a loading indicator while waiting for data
+        return const CircularProgressIndicator();
+      },
     );
   }
 }
