@@ -1,0 +1,5 @@
+# API Key
+.env
+
+# Backend related
+__pycache__
