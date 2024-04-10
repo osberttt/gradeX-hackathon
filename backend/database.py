@@ -1,20 +1,32 @@
 questions = [
-    "What are the different ways to declare comments in Python?",
-    "What are the main data types used in Python, and how do you assign a value to a variable of each type?",
-    "Explain the difference between an `==` operator and a single `=` operator in Python.",
-    "Write a simple Python program that uses a `for` loop to iterate through a list of numbers and print their sum.",
-    "How do you define a function in Python, and what are the key components of a function definition?",
-    "What is the difference between a `list` and a `tuple` data type in Python?",
-    "How do you access a specific element within a string in Python?",
-    "What is the purpose of the `input()` function in Python?",
-    "How do you import a module and use a function from that module in Python?",
-    "Describe two common indentation errors you might encounter while writing Python code.",
+    "How do you write comments in Python?",
+    "Why might you use comments in your Python code?",
+    "What are the basic data types in Python?",
+    "How do you assign a value to a variable in Python?",
+    "Why is indentation crucial in Python code?",
+    "How do you take user input in Python?",
+    "How do you access elements in a list?",
+    "How are lists different from tuples?",
+    "How do you access values in a dictionary?",
+    "Why are functions beneficial in Python?",
+    "How to define a function in Python?",
+]
+# sample answers for testing
+# some answers are correct
+# some are partially correct or incomplete
+# some are incorrect
+sample_answers = [
+    "# This is a single-line comment",
+    "To explain complex logic or improve code readability",
+    "numbers,text,booleans",
+    "name = value",
+    "Defines code blocks and execution flow",
+    "print()",
+    "list_name[index]",
+    "Lists are ordered, changeable, and use square brackets. Tuples are similar but immutable (unchangeable) and use parentheses.",
+    "dictionary_name['key']",
+    "Break down complex tasks, improve code reusability, and enhance readability.",
+    "with the def keyword",
 ]
 
 answers = []
-
-sample_answers = [
-    "Using #",
-    "int,bool,float,string. using ==",
-    "== is equivalent. = is assign",
-]

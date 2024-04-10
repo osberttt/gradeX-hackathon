@@ -1,6 +1,6 @@
 import google.generativeai as genai
 import os
-from dotenv import load_dotenv, find_dotenv
+from dotenv import load_dotenv
 
 import database
 
@@ -14,7 +14,6 @@ class Results:
 
 
 def get_results(test=False):
-    find_dotenv()
     load_dotenv()
 
     answers = database.answers
@@ -30,12 +29,12 @@ def get_results(test=False):
     The return output MUST seperate the ratings with commas so that I can later process the ratings in 
     a python file.Example output is 6,5,7. Another example is 2,5,10. Another is 6,8,1.
     """
-    for i in range(len(database.answers)):
+    for i in range(len(answers)):
         req = req + f"{i + 1}. Q: {database.questions[i]} A: {answers[i]} \n"
     ratings = chat.send_message(req)
     ratings = ratings.text.split(",")
 
-    req = """Provide feedbacks to each of them. The return output MUST follow the following exact format.
+    req = """Provide feedbacks to each of them about why you gave such ratings. The return output MUST follow the following exact format.
     1.<Question>
     <Answer>
     <Feedback>"""
