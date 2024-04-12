@@ -5,13 +5,17 @@ GradeX is a hackathon prototype for an AI-powered grading assistant that uses Ge
 ## Features (This repository)
 
 **Automated Grading**: Leverage AI to automate grading tasks, saving instructors valuable time.
+
 **Detailed Feedback**: Generate comprehensive feedback reports for students on why such grades are given.
 
 ## Features (Future Development)
 
 **Generating Reports**: Create comprehensive reports for instructors to analyze student performance and identify learning trends.
+
 **Personalized Analytics**: Provide students with personalized insights into their learning progress including strengths, weaknesses and areas to improve.
+
 **Study Guidance**: Offer tailored study recommendations based on individual student needs.
+
 **LMS Integration**: Integrate seamlessly with Learning Management Systems (LMS) for a streamlined workflow.
 
 ## Current Scope
@@ -21,15 +25,20 @@ This GitHub repository focuses on the core functionalities of automated grading 
 ## Tech Stack
 
 Frontend: Flutter
+
 Backend: Python, Flask
+
 AI Integration: Gemini AI API
 
 ## Getting Started
 
 **Prerequisites**:
-Flutter development environment set up [link to Flutter documentation](https://docs.flutter.dev/get-started/install)
-Python 3.x installed [link to Python installation](https://www.python.org/downloads/)
-Gemini AI API access [link to Gemini AI API](https://ai.google.dev/docs)
+
+[Flutter Setup](https://docs.flutter.dev/get-started/install)
+
+[Python installed](https://www.python.org/downloads/)
+
+[Get Gemini AI API key](https://ai.google.dev/docs)
 
 **Clone the Repository**:
 
@@ -46,8 +55,7 @@ cd backend
 pip install -r requirements.txt
 ```
 
-2. Get the Gemini AI API key following their documentation.
-3. Create .env file in the backend folder and add the API key.
+2. Create .env file in the backend folder and add the API key. [Get Gemini AI API key](https://ai.google.dev/tutorials/setup)
    `GEMINI_API_KEY = {insert your api key here}`
 
 **Run the Application**:
