@@ -4,9 +4,9 @@ GradeX is a hackathon prototype for an AI-powered grading assistant that uses Ge
 
 ## Features (This repository)
 
-**Automated Grading**: Leverage AI to automate grading tasks, saving instructors valuable time.
+**Automated Grading**: Leverage AI to automate grading tasks, and give back ratings on a scale of 1-10 for the answers.
 
-**Detailed Feedback**: Generate comprehensive feedback reports for students on why such grades are given.
+**Detailed Feedback**: Generate comprehensive feedback reports for students on why such ratings are given.
 
 ## Features (Future Development)
 
@@ -59,6 +59,15 @@ pip install -r requirements.txt
 
    `GEMINI_API_KEY = {insert your api key here}`
 
+**Set Up Frontend**:
+
+1. Install flutter packages (if necessary).
+
+```console
+flutter packages get
+flutter packages upgrade
+```
+
 **Run the Application**:
 
 1. Navigate to the root directory of the project.
@@ -69,11 +78,25 @@ cd backend
 python server.py
 ```
 
-3. Run the Flutter development command.
+3. Run the Flutter app.
 
 ```console
 flutter run
 ```
+
+## Challenges
+
+There are currently some hurdles to overcome in making GradeX a robust grading assistant. Here's a key challenge we're facing:
+
+**Inconsistent API Output**: The Gemini AI API output string lacks consistency, making it difficult to reliably parse and manipulate within the Python server and the Flutter app. This inconsistency creates challenges in accurately extracting ratings and feedbacks for display.
+
+**Potential Solutions**:
+
+One possible solution we're exploring is to develop a custom "compiler" to process the Gemini AI output word by word. This compiler could tokenize the response, identify relevant ratings and feedback sections, and structure the data in a format that the Flutter app can easily understand and display.
+
+_We welcome your thoughts!_
+
+If you have experience with natural language processing or ideas for alternative solutions, feel free to contribute to this project or open an issue to discuss your thoughts.
 
 ## Contributing
 
@@ -91,7 +114,7 @@ We welcome contributions to gradeX! We're excited to see your ideas and improvem
 
 **What to Contribute**:
 
-- Features aligned with the project roadmap: We encourage contributions that support the planned future development of GradeX, including features like report generation, personalized analytics, study guidance, and LMS integration. Refer to the "Future Development" section for details.
+- Features aligned with the project roadmap: We encourage contributions that support the planned future development of GradeX, including features like report generation, personalized analytics, study guidance, LMS integration and the solution to the API output inconsistency. Refer to the "Future Development" section and "Challenges" section for details.
 - Bug fixes and improvements: We appreciate contributions that fix bugs, improve existing code quality, or enhance documentation.
 - New ideas: We're open to innovative ideas that extend the functionality of gradeX beyond the current roadmap. Feel free to discuss your ideas in an issue before submitting a pull request.
 
