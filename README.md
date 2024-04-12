@@ -1,4 +1,4 @@
-## GradeX: AI-Powered Grading Assistant
+## GradeX: AI-powered Grading Assistant
 
 GradeX is a hackathon prototype for an AI-powered grading assistant that uses Gemini AI API to automate the grading process and provide students with detailed feedback.
 
