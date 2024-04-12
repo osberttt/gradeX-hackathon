@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "pala_hackathon" "\0"
+            VALUE "FileDescription", "gradeX_hackathon" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "pala_hackathon" "\0"
+            VALUE "InternalName", "gradeX_hackathon" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2024 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "pala_hackathon.exe" "\0"
-            VALUE "ProductName", "pala_hackathon" "\0"
+            VALUE "OriginalFilename", "gradeX_hackathon.exe" "\0"
+            VALUE "ProductName", "gradeX_hackathon" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

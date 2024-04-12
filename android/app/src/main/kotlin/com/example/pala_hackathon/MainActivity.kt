@@ -1,4 +1,4 @@
-package com.example.pala_hackathon
+package com.example.gradeX_hackathon
 
 import io.flutter.embedding.android.FlutterActivity
 
