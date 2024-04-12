@@ -23,6 +23,7 @@ def get_data():
 @app.route("/api/results", methods=["GET"])
 def get_results():
     results = gemini.get_results()
+    database.clean_up()
     # Handle no data found case
     if not results:
         return jsonify({"message": "No data found matching your criteria"}), 404

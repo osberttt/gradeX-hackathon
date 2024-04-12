@@ -30,3 +30,8 @@ sample_answers = [
 ]
 
 answers = []
+
+
+def clean_up():
+    global answers
+    answers = []
