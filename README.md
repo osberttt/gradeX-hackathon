@@ -1,14 +1,14 @@
-# GradeX: AI-Powered Grading Assistant
+## GradeX: AI-Powered Grading Assistant
 
 GradeX is a hackathon prototype for an AI-powered grading assistant that uses Gemini AI API to automate the grading process and provide students with detailed feedback.
 
-## Features (This repository)
+### Features (This repository)
 
 **Automated Grading**: Leverage AI to automate grading tasks, and give back ratings on a scale of 1-10 for the answers.
 
 **Detailed Feedback**: Generate comprehensive feedback reports for students on why such ratings are given.
 
-## Features (Future Development)
+### Features (Future Development)
 
 **Generating Reports**: Create comprehensive reports for instructors to analyze student performance and identify learning trends.
 
@@ -18,11 +18,11 @@ GradeX is a hackathon prototype for an AI-powered grading assistant that uses Ge
 
 **LMS Integration**: Integrate seamlessly with Learning Management Systems (LMS) for a streamlined workflow.
 
-## Current Scope
+### Current Scope
 
 This GitHub repository focuses on the core functionalities of automated grading and detailed feedback generation. The remaining features are prototypes envisioned for future development.
 
-## Tech Stack
+### Tech Stack
 
 Frontend: Flutter
 
@@ -30,7 +30,7 @@ Backend: Python, Flask
 
 AI Integration: Gemini AI API
 
-## Getting Started
+### Getting Started
 
 **Prerequisites**:
 
@@ -61,7 +61,7 @@ pip install -r requirements.txt
 
 **Set Up Frontend**:
 
-1. Install flutter packages (if necessary).
+Install flutter packages (if necessary).
 
 ```console
 flutter packages get
@@ -84,7 +84,7 @@ python server.py
 flutter run
 ```
 
-## Challenges
+### Challenges
 
 There are currently some hurdles to overcome in making GradeX a robust grading assistant. Here's a key challenge we're facing:
 
@@ -98,7 +98,7 @@ _We welcome your thoughts!_
 
 If you have experience with natural language processing or ideas for alternative solutions, feel free to contribute to this project or open an issue to discuss your thoughts.
 
-## Contributing
+### Contributing
 
 We welcome contributions to gradeX! We're excited to see your ideas and improvements to help this project reach its full potential.
 
