@@ -56,6 +56,7 @@ pip install -r requirements.txt
 ```
 
 2. Create .env file in the backend folder and add the API key. [Get Gemini AI API key](https://ai.google.dev/tutorials/setup)
+
    `GEMINI_API_KEY = {insert your api key here}`
 
 **Run the Application**:
